@@ -166,14 +166,41 @@
     position: relative;
     top: 0;
     left: 0;
-    height: 100vh;
+    height: 120vh;
+    /**/
+    overflow-y: auto;
+    overflow-x: hidden;
+    perspective: 10px;
   }
+
+  /* transform: translateZ( -10px) scale(2); */
   
-  .bg, .svg-wrap {
+  .svg-wrap {
     position: absolute;
     inset: 0;
     z-index: 1;
-    background: var(--gradient-1);
+    /* background: var(--gradient-1); */
+    border: .5em dotted chartreuse;
+  }
+
+  .bg, .fg {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+    transition-duration: 1s;
+  }
+
+  .bg {
+    transform: translateZ(-10px) scale(2);
+  }
+  
+  .fg {
+    transform: translateZ(-20px) scale(1.2) rotateY(1deg);
+    filter:blur(1px);
+    background: repeating-linear-gradient(0.65turn, transparent, rgb(133, 133, 213) .5rem),
+    repeating-linear-gradient(0.35turn, rgb(136, 0, 255), transparent .5rem);
   }
   
   .grid {
@@ -185,10 +212,9 @@
   
   .title-wrap {
     position: relative;
-    top: 40%;
-    text-align: center;
+    top: 20%;
+    text-align: right;
     color: yellowgreen;
-    font-size: 4em;
     text-shadow: 0 0 5px red;
     border: 1px solid green;
     z-index: 10;
@@ -239,6 +265,8 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
+    /**/
+    background: #310447;
   }
   
   .nav-btn::before {
@@ -258,3 +286,53 @@ nav {
     box-shadow: 1em 1em 1em orange;
   }
   
+
+  .more-content {
+    position: absolute;
+    top: 100%;
+    display: flex;
+  flex-direction: row-reverse;
+  }
+
+  .welcome-card {
+    background-color: rgba(0, 0, 255, 0.5);
+  }
+
+  .text-wrap {
+    font-size: 1.2rem;
+    width: 50%;
+    transition-duration: .7s;
+  }
+
+  .text-wrap:hover {
+    text-decoration-line: line-through;
+  }
+
+  .deco {
+    margin-top: 10em;
+    border: .2em dotted rgb(179, 0, 255);
+    height: 50%;
+    opacity: 1;
+    /**/
+    /* background-image: url('./public/img/pas-ker.png'); */
+    background: linear-gradient(to bottom, transparent 50%, rgba(76, 54, 244, 0.2) 50%),
+    linear-gradient(to right, rgba(97, 124, 162, 0.2) 50%, #1263e6 50%);
+    background-size: 10px 10px, 10px 10px;
+    transition-duration: 2s;
+  }
+
+  .deco:hover {
+    opacity: .2;
+    background-size: 350px 650px, 10px 10px;
+  }
+
+  .test {
+    position: absolute;
+    top: 100%;
+    width: 50%;
+    font-size: 2em;
+    padding-left: 1em;
+    color: chartreuse;
+    text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 1em rgb(26, 255, 0), 0 0 0.2em rgb(32, 31, 30);
+  }
+
