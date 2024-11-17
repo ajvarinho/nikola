@@ -1,9 +1,20 @@
 * {
     box-sizing: border-box;
     margin: 0;
+    text-transform: uppercase;
   }
   
   html { scroll-behavior: smooth; }
+
+  .archivo-test {
+    font-family: "Archivo", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
+  }
+
   
   :root {
   
@@ -41,6 +52,15 @@
     --margin-large: 3.5em;
     --margin-small: .5rem;
     --border-radius-small: 0.5rem;
+
+    /* COLOR SCHEMES */
+
+    --linear-bg-1: linear-gradient(10deg, rgb(6, 6, 6), rgb(255, 255, 255));
+    --linear-abstract-1: linear-gradient(4deg, rgb(6, 6, 6), rgb(237, 250, 234));
+
+    /*EFFECTS*/
+    
+
   }
   
   /* RESET */
@@ -52,8 +72,8 @@
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    background: var(--background-light);
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: white;
+    font-family: "Test";
   }
   
   img {
@@ -90,18 +110,18 @@
     top: 0;
     width: 100%;
     z-index: 10;
-    background: linear-gradient(to right, rgba(96, 2, 82, 0.2), rgba(1, 47, 77, 0.2));
-    color: var(--clr-text-light);
+    /* background: linear-gradient(to right, rgba(96, 2, 82, 0.2), rgba(1, 47, 77, 0.2));
+    color: var(--clr-text-light); */
     padding-inline-start: var(--padding-inline-small);
     padding-inline-end: var(--padding-inline-small);
-    border-bottom: 1px solid var(--clr-branding-1);
-    /**/
-    box-shadow: 0em 0em 5em 0em var(--background-dark);
+    border-bottom: 1px solid black;
+    background: transparent;
+   color: black;
   }
   
   .header-menu {
     position: relative;
-    border: 1px solid green;
+
   }
   
   .mode {
@@ -111,13 +131,10 @@
   .mode > label {
     height: 100%;
     display: block;
-    border: 2px solid blue;
     cursor: pointer;
   }
   
-  #mode:checked > header {
-    background-color: red;
-  }
+
   
   .header-menu > .menu-btn {
     width: 3em;
@@ -127,6 +144,16 @@
   .svg-icon {
     cursor: pointer;
     pointer-events: none;
+  }
+
+  .svg-icon__el {
+    fill: black;
+    /* transition-duration: .3s; */
+    /* stroke: black; */
+  }
+
+  .svg-icon__el:hover {
+    fill: blue;
   }
   
   .a11y-menu {
@@ -153,7 +180,8 @@
   }
   
   .wrap > a {
-    color: var(--clr-text-light);
+    font-size: 2em;
+    color: black;
   }
   
   h1 {
@@ -171,6 +199,17 @@
     overflow-y: auto;
     overflow-x: hidden;
     perspective: 10px;
+    /**/
+    padding-top: 3.3em;
+  }
+
+  .welcome-wrap {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 2em;
+    justify-content: space-around;
+    align-items: center;
+    height: 30%;
   }
 
   /* transform: translateZ( -10px) scale(2); */
@@ -180,7 +219,13 @@
     inset: 0;
     z-index: 1;
     /* background: var(--gradient-1); */
-    border: .5em dotted chartreuse;
+    /* border: .5em dotted chartreuse; */
+    border-bottom: 5px solid;
+  }
+
+  .svg-el {
+    height: 100%;
+    width: 100%;
   }
 
   .bg, .fg {
@@ -212,14 +257,50 @@
   
   .title-wrap {
     position: relative;
-    top: 20%;
+    /* top: 10%; */
     text-align: right;
-    color: yellowgreen;
-    text-shadow: 0 0 5px red;
-    border: 1px solid green;
+    color: black;
+    /* text-shadow: 0 0 5px red;
+    border: 1px solid green; */
     z-index: 10;
+    /**/
+    /* padding-right: 1em; */
+    background: beige;
+    /* line-height: 2em; */
+    transition-duration: 2s;
+    /**/
+    /* display: inline-block; */
+  /* height: fit-content;
+  left: 70%; */
+
+  padding-right: 1em;
   }
-  
+
+  .title-wrap > h2 {
+    border-bottom: 1px solid;
+    display: inline-block;
+  }
+
+  .title-wrap:hover {
+    line-height: 2em;
+    border-radius: 109px 20px 245px 20px;
+    background: rgba(0, 68, 255, .5);
+    padding-right: 1em;
+  }
+
+  .title-wrap p:last-of-type {
+    text-align: right;
+    background: wheat;
+    display: inline-block;
+  }
+/* 
+  .title-wrap::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: wheat;
+  }
+   */
   /*  N A V I G A T I O N  */
 
 nav {
@@ -229,44 +310,43 @@ nav {
   }
   
   .nav-main {
-    background-image: url('./img/npl-tru.png');
+    /* background-image: url('./img/npl-tru.png');
     background-size: cover;
     position: absolute;
     z-index: 5;
     top: 50%;
-    width: 100%;
-  }
-  
-  .nav-main > ul {
-    height: 100%;
+    width: 50%;
     display: flex;
-    gap: 1em;
     flex-direction: column;
-    align-content: center;
-    justify-content: center;
+    font-weight: 900; */
+    /**/
+    border-bottom: 1px solid;
+  background: white;
+  text-align: right;
+  /**/
+  display: inline-block;
   }
   
-  .nav-list > li {
-    height: 20%;
-    border: 1px dotted white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+
   
   .nav-btn {
     position: relative;
-    color: white;
+    color: rgb(5, 5, 5);
     text-decoration: none;
-    font-weight: bold;
-    border: 1px solid red;
+    /* font-weight: bold;
     height: 100%;
-    width: 100%;
-    display: flex;
+    width: 100%; */
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     /**/
-    background: #310447;
+
+    display: inline-block;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1em;
+  font-size: 1.5em;
+  font-weight: 900;
   }
   
   .nav-btn::before {
@@ -279,13 +359,39 @@ nav {
     z-index: -1;
   }
   
-  .nav-btn:hover::before {
+  /* .nav-btn:hover::before {
     transform: translateX(2em);
     opacity: 1;
     background-image: url('./img/rekbu.png');
     box-shadow: 1em 1em 1em orange;
+  } */
+
+  .welcome-text {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transform: translateZ(-40px) scale(2.2) rotateY(1deg);
+    filter: blur(1px);
+    font-size: 3em;
+    border: 1px solid;
+    background: blue;
+  }
+
+  .welcome-text > p {
+    color: white;
+    display: inline-block;
+    background-color: white;
   }
   
+
+  .welcome-content {
+    position: relative;
+    height: 80%;
+    width: 100%;
+    border: 1px solid;
+    background-color: rgb(37, 108, 250);
+    background: linear-gradient(to bottom, white, rgba(255, 143, 246, .1), rgba(250, 128, 114, .5), rgba(37, 108, 250, .3));
+  }
 
   .more-content {
     position: absolute;
