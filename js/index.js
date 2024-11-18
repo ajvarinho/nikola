@@ -19,9 +19,41 @@ smallFont.addEventListener('change', ()=>{
 var i;
 var fib = [0, 1]; // Initialize array!
 
-for (i = 2; i <= 10; i++) {
-  // Next fibonacci number = previous + one before previous
-  // Translated to JavaScript:
-  fib[i] = fib[i - 2] + fib[i - 1];
-  console.log(fib[i]);
-}
+const svgWrap = document.querySelector('.svg-wrap')
+const fibonacciTest = svgWrap.querySelector('.fibonacci'); 
+let fibonacciArr = []
+
+//
+let pathPointsTest 
+// = `m ${imgWrapLeft + 100},${
+//   imgWrapTop - 50
+// } l 175,0 l 0,175 l -175,0 z`;
+// //
+// pathEl.setAttribute("d", pathPointsTest);
+
+// for (i = 2; i <= 10; i++) {
+//   // Next fibonacci number = previous + one before previous
+//   // Translated to JavaScript:
+//   console.log('check', fib[i-2])
+//   fib[i] = fib[i - 2] + fib[i - 1];
+//   //
+//   fibonacciArr.push(fib[i-2], fib[i])
+//   console.log(fib[i], fibonacciArr);
+// }
+
+// let number
+// function returnNums(number){
+//   return number;
+// }
+
+// for (i = 1; i <= fibonacciArr.length; i++){
+//   returnNums(fibonacciArr[i]);
+// }
+
+// console.log('number', number)
+
+// let check = fibonacciTest.getAttribute('d');
+// console.log(check, typeof check);
+// console.log(fibonacciArr[i]);
+// let proba = check + ' ' + `${fibonacciArr[i]} ${fibonacciArr[i]}`;
+// console.log(proba, 'proba');
