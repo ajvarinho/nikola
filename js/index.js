@@ -1,27 +1,75 @@
 console.log("djesba");
 
-const openAccessibilityMenu = document.getElementById('a11y-menu')
+const a11yBtn = document.getElementById('a11y-menu')
+const a11yCloseBtn = document.getElementById('close-a11y')
 const accessibilityWrap = document.querySelector('.a11y-menu')
 
-openAccessibilityMenu.addEventListener('click', ()=>{
-  console.log('alo')
-  accessibilityWrap.classList.toggle('active')
+a11yBtn.addEventListener('click', ()=>{
+  accessibilityWrap.classList.add('active');
+  a11yBtn.setAttribute('aria-expanded', 'true');
 })
 
-
-
-const smallFont = document.getElementById('small')
-
-smallFont.addEventListener('change', ()=>{
-  console.log('change')
+a11yCloseBtn.addEventListener('click', ()=>{
+  accessibilityWrap.classList.remove('active');
+  a11yBtn.setAttribute('aria-expanded', 'false');
 })
+
+// text elements 
+let textElements
+
+let currentLocation = window.location.pathname;
+
+function setFontSize(arr, string){
+  arr.forEach(element => {
+    element.setAttribute('class', '')
+    element.classList.add('font-'+ `${string}`)
+  });
+}
+
+const smallFont = document.getElementById('small');
+const defaultFont = document.getElementById('default');
+const largeFont =  document.getElementById('large');
+
+accessibilityWrap.addEventListener('change', (e)=>{
+  console.log('test click', e.target, e.target.value)
+  let selectedValue = e.target.value
+  setFontSize(textElements, selectedValue)
+  e.preventDefault()
+})
+
+setTimeout(() => {
+  accessibilityWrap.classList.remove('hidden');
+  textElements = document.querySelectorAll('.content-wrap p');
+}, 1000);
+
+//reselect text elements if 'route' has changed
+
+document.addEventListener("click", (e) => {
+  const { target } = e;
+  if (!target.matches("nav a")) {
+      return;
+  }
+  if(target.href !== '/'){
+    //
+    //mozda tu animacija
+    //
+    setTimeout(() => {
+      textElements = document.querySelectorAll('.content-wrap p');
+    }, 1000);
+  }
+});
+
+
+
+
+//
 
 var i;
 var fib = [0, 1]; // Initialize array!
 
-const svgWrap = document.querySelector('.svg-wrap')
-const fibonacciTest = svgWrap.querySelector('.fibonacci'); 
-let fibonacciArr = []
+// const svgWrap = document.querySelector('.svg-wrap')
+// const fibonacciTest = svgWrap.querySelector('.fibonacci'); 
+// let fibonacciArr = []
 
 //
 let pathPointsTest 

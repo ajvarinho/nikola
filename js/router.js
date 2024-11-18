@@ -20,13 +20,13 @@ const routes = {
     },
     "/about": {
         template: "/templates/about.html",
-        title: "About Us",
+        title: "About",
         description: "This is the about page",
     },
     "/work": {
         template: "/templates/work.html",
         title: "Work",
-        description: "This is the contact page",
+        description: "This is the portfolio page",
     },
 };
 
@@ -52,6 +52,8 @@ const locationHandler = async () => {
     const html = await fetch(route.template).then((response) => response.text());
     // set the content of the content div to the html
     document.getElementById("content").innerHTML = html;
+    //
+    document.getElementById("content").setAttribute('title', route.title);
     // set the title of the document to the title of the route
     document.title = route.title;
     // set the description of the document to the description of the route

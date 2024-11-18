@@ -1,7 +1,6 @@
 * {
     box-sizing: border-box;
     margin: 0;
-    text-transform: uppercase;
   }
   
   html { scroll-behavior: smooth; }
@@ -15,7 +14,6 @@
       "wdth" 100;
   }
 
-  
   :root {
   
     /* fonts */
@@ -93,12 +91,18 @@
 
   section {
     min-height: 100vh;
-        /**/
-        padding-top: 3.3em;
-        overflow-y: auto;
-  overflow-x: hidden;
+    /**/
+    padding-top: 3.25em;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
   
+  /**/
+
+  .hidden {
+    display: none;
+  }
+
   .flex {
     display: flex;
     align-content: space-between;
@@ -165,6 +169,7 @@
     transition-duration: .3s;
     transform: translateX(15em);
     border: .2em solid;
+    text-transform: uppercase;
 }
   
   
@@ -182,6 +187,14 @@
     font-size: 2em;
     color: black;
   }
+
+  /**/
+  main {
+    position: relative;
+    min-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
   
   /* W E L C O M E */
 
@@ -194,7 +207,7 @@
     overflow-y: auto;
     overflow-x: hidden;
     perspective: 10px;
-
+    
   }
 
   .welcome-wrap {
@@ -254,7 +267,7 @@
     z-index: 10;
     background: rgb(51, 0, 255);
     transition-duration: 2s;
-
+    
   }
 
   .title-wrap > h2 {
@@ -262,8 +275,9 @@
     display: inline-block;
     font-weight: 900;
     padding-left: 1.8em;
-  padding-right: .8em;
-  background: white;
+    padding-right: .8em;
+    background: white;
+    text-transform: uppercase;
   }
 
   .title-wrap p:last-of-type {
@@ -281,28 +295,24 @@ nav {
   }
   
   .nav-main {
-
     border-bottom: 1px solid;
-  background: white;
-  text-align: right;
-  /**/
-  display: inline-block;
+    background: white;
+    text-align: right;
+    /**/
+    display: inline-block;
   }
-  
-
   
   .nav-btn {
     position: relative;
     color: rgb(5, 5, 5);
     text-decoration: none;
-
-
+    text-transform: uppercase;
     display: inline-block;
-  justify-content: center;
-  align-items: center;
-  padding: 0 1em;
-  font-size: 1.5em;
-  font-weight: 900;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1em;
+    font-size: 1.5em;
+    font-weight: 900;
   }
   
   .nav-btn::before {
@@ -315,26 +325,7 @@ nav {
     z-index: -1;
   }
   
-
-
-  .welcome-text {
-    line-height: 2.5em;
-    /* background-color: cornflowerblue; */
-    padding-left: 1.5em;
-  }
-
-  .welcome-text > p {
-    color: black;
-    display: inline-block;
-    border-bottom: 1px solid;
-    text-decoration: black;
-    font-weight: 900;
-    letter-spacing: .3em;
-    background: white;
-  }
-  
-
-  .welcome-content {
+  .content-wrap {
     position: relative;
     height: 50%;
     width: 100%;
@@ -350,10 +341,30 @@ nav {
     border-right: 3.5em solid blue;
   }
 
-  /* .welcome-content:hover {
+  .content-title {
+    line-height: 2.5em;
+    /* background-color: cornflowerblue; */
+    padding-left: 1.5em;
+  }
+
+  .content-title > p {
+    color: black;
+    display: inline-block;
+    border-bottom: 1px solid;
+    text-decoration: black;
+    font-weight: 900;
+    letter-spacing: .3em;
+    background: white;
+  }
+
+  .welcome-content{
+    height: 100%;
+  }
+
+  .welcome-content:hover {
     opacity: 1;
     background: repeating-radial-gradient(circle at 10%, #333, #333 10px, #eee 10px, #eee 20px);
-  } */
+  }
 
   .welcome-spacer {
     height: 4em;
@@ -410,3 +421,15 @@ nav {
     text-shadow: 1px 1px 2px rgb(0, 0, 0), 0 0 1em rgb(26, 255, 0), 0 0 0.2em rgb(32, 31, 30);
   }
 
+
+  .font-small {
+    font-size: .8rem;
+  }
+
+  .font-default {
+    font-size: 1.2rem;
+  }
+
+  .font-large {
+    font-size: 2.2rem;
+  }
