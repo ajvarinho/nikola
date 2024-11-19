@@ -51,7 +51,18 @@ const locationHandler = async () => {
     // get the html from the template
     const html = await fetch(route.template).then((response) => response.text());
     // set the content of the content div to the html
-    document.getElementById("content").innerHTML = html;
+    document.getElementById("content").classList.add('changeContent')
+
+    
+    if(location.length !== 0){
+    setTimeout(() => {
+        document.getElementById("content").innerHTML = html;
+        }, 200);
+    }
+    setTimeout(() => {
+        document.getElementById("content").classList.remove('changeContent')
+      }, 500);
+    //document.getElementById("content").innerHTML = html;
     //
     document.getElementById("content").setAttribute('title', route.title);
     // set the title of the document to the title of the route

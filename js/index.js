@@ -1,8 +1,18 @@
 console.log("djesba");
 
+//dark mode
+
+const switchMode = document.getElementById('switch-mode')
+
+switchMode.addEventListener('change', ()=>{
+  console.log('alo')
+})
+
 const a11yBtn = document.getElementById('a11y-menu')
 const a11yCloseBtn = document.getElementById('close-a11y')
 const accessibilityWrap = document.querySelector('.a11y-menu')
+//
+const letterSpacing = document.getElementById('letter-spacing')
 
 a11yBtn.addEventListener('click', ()=>{
   accessibilityWrap.classList.add('active');
@@ -26,14 +36,28 @@ function setFontSize(arr, string){
   });
 }
 
+function setLetterSpacing(arr, string){
+  let spacingValue
+  if(string.length === 1){
+    spacingValue = Number(string)
+  }
+  arr.forEach(element => {
+    element.style.letterSpacing = spacingValue + 'px'
+  })
+}
+
 const smallFont = document.getElementById('small');
 const defaultFont = document.getElementById('default');
 const largeFont =  document.getElementById('large');
 
 accessibilityWrap.addEventListener('change', (e)=>{
-  console.log('test click', e.target, e.target.value)
+  console.log('test click', e.target, e.target.value, typeof e.target.value)
   let selectedValue = e.target.value
-  setFontSize(textElements, selectedValue)
+  if(e.target.type ==='radio') {
+    setFontSize(textElements, selectedValue)
+  } else {
+    setLetterSpacing(textElements, selectedValue)
+  }
   e.preventDefault()
 })
 

@@ -17,14 +17,18 @@
         <header>
             <div class="wrap flex archivo-test">
 
-                <div class="header-menu flex">
+                <div class="header-menu">
 
                     <div class="mode">
-                        <label for="mode">
-                            <input type="checkbox" id="mode" class="mode-switch" name="mode">
-                            <svg class="svg-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">        
+                        <label for="switch-mode">
+                            <!-- <svg class="svg-icon" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">        
                                 <circle class="svg-icon__el" cx="10" cy="10" r="8" stroke="white" fill="transparent" stroke-width="1"/>
-                            </svg>
+                                <path class="svg-icon__el" d="M 6 8 Q 10 9 14 8" stroke="white" fill="transparent" stroke-width="1"/>
+                            </svg> -->
+                            <!-- <div class="switch-icon-wrap"> -->
+                                <!-- </div> -->
+                                <input type="checkbox" id="switch-mode" name="switch-mode">
+                                <div class="switch-icon"></div>
                         </label>
                     </div>
 
@@ -40,7 +44,7 @@
                     </button>
                     
                     <div id="a11y-widget" class="a11y-menu hidden">
-                        <button id="close-a11y" class="close-menu" aria-label="close accessibility menu">X</button>
+                        <button id="close-a11y" class="close-btn" aria-label="close accessibility menu">X</button>
                         <fieldset>
                             <legend>Select font size:</legend>
                         
@@ -62,7 +66,7 @@
 
                         <div class="letter-spacing">
                             <label for="letter-spacing">Letter spacing</label>
-                            <input type="range" id="letter-spacing" name="letter-spacing" min="0" max="5">
+                            <input type="range" id="letter-spacing" name="letter-spacing" min="0" max="10" value="2" step="1">
                         </div>
                     </div>
                     
