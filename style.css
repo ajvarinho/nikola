@@ -129,10 +129,10 @@
   }
   
   .header-menu {
-    position: relative;
+    /* position: relative; */
     gap: 1.5em;
     width: 20%;
-    border: 1px solid;
+    
     /**/
     display: flex;
     align-items: center;
@@ -140,11 +140,12 @@
   
   .mode {
     position: relative;
-    top: 0;
-    left: 0;
-    width: 50%;
-    border: 1px solid red;
-    height: 50%;
+  top: 0;
+  left: 0;
+  width: 25%;
+  border: 2px solid;
+  height: 50%;
+  border-radius: 2px;
   }
 
   .mode > label {
@@ -204,28 +205,34 @@
   }
   
   .a11y-menu {
+    /**/
+    /* display: none; */
+    /**/
     position: absolute;
-    top: 6em;
-    left: -13em;
-    padding: 1em .5em;
+    top: 5em;
+    left: -15em;
+
     background-color: white;
     opacity: 0;
     transition-duration: .3s;
     transform: translateX(15em);
     border: .2em solid;
     text-transform: uppercase;
+    height: 0;
 }
   
   .active {
-    height: fit-content;
+    /* display: block; */
+    height: 15em;
     opacity: 1;
     box-shadow: 0em 0em 6em 2em;
+    padding: 1em .5em;
   }
 
   .close-btn {
     border: 1px solid;
     padding: 0.2em .5em;
-    transform: translateX(12.8em);
+    transform: translateX(15em);
     cursor: pointer;
     font-size: 1.1em;
     transition-duration: .3s;
@@ -281,7 +288,7 @@
     position: absolute;
     inset: 0;
     z-index: -1;
-    background: var(--gradient-1);
+    /* background: var(--gradient-1); */
     /* border: .5em dotted chartreuse; */
     border-bottom: 5px solid;
   }
@@ -512,3 +519,60 @@ nav {
       transform: translateX(0%);
     }
   }
+
+  @media (max-width: 30rem) {
+
+    section {
+      padding-top: 3.85em;
+    }
+
+    .header-menu {
+      width: 45%;
+      gap: 1em;
+    }
+
+    .mode {
+      width: 25%;
+    }
+
+    .switch-icon {
+      width: 100%;
+    }
+
+    #switch-mode:checked + .switch-icon {
+      background-color: black;
+    }
+
+    .wrap > a {
+      font-size: 1.2em;
+      text-align: right;
+    }
+
+    .a11y-menu {
+      width: 95%;
+      transform: translateX(-50%);
+      transition-duration: .7s;
+    }
+
+    .active {
+      transform: translateX(90%);
+    }
+
+    .a11y-menu > button {
+      transform: translateX(10.5em);
+      font-size: 1.3em;
+    }
+
+    .nav-main {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      text-align: left;
+      padding: .5em 0;
+    }
+
+    .title-wrap {
+      border-left: 4em solid blue;
+    }
+  }
+  
