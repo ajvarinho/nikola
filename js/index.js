@@ -85,9 +85,11 @@ document.addEventListener("click", (e) => {
     //
     //mozda tu animacija
     //
+    //console.log("CHECK", document.querySelector('#content section'))
+    //
     setTimeout(() => {
       textElements = document.querySelectorAll('.content-wrap p');
-    }, 1000);
+    }, 500);
   }
 });
 
