@@ -51,16 +51,22 @@ const locationHandler = async () => {
     // get the html from the template
     const html = await fetch(route.template).then((response) => response.text());
     // set the content of the content div to the html
-    document.getElementById("content").classList.add('changeContent')
-
+    let contentWrap 
+    //contentWrap.classList.add('changeContent')
+    //document.getElementById("content").classList.add('changeContent')
+    //console.log("CHECK", document.querySelector('#content section'))
     
+
     if(location.length !== 0){
     setTimeout(() => {
         document.getElementById("content").innerHTML = html;
+        contentWrap = document.querySelector('.content-wrap');
+        contentWrap.classList.add('changeContent')
         }, 200);
     }
     setTimeout(() => {
-        document.getElementById("content").classList.remove('changeContent')
+        //document.getElementById("content").classList.remove('changeContent')
+        contentWrap.classList.remove('changeContent')
       }, 500);
     //document.getElementById("content").innerHTML = html;
     //
