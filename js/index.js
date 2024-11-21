@@ -35,6 +35,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
   });
 });
 
+console.log('aloo')
+
 const a11yBtn = document.getElementById('a11y-menu')
 const a11yCloseBtn = document.getElementById('close-a11y')
 const accessibilityWrap = document.querySelector('.a11y-menu')
