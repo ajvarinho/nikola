@@ -1,8 +1,16 @@
 console.log("djesba");
 
 //dark mode
-
 const switchMode = document.getElementById('switch-mode')
+
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  // dark mode
+  switchMode.checked = true;
+} else {
+  //
+  switchMode.checked = false;
+}
+
 
 switchMode.addEventListener('change', ()=>{
   console.log('alo')
