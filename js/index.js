@@ -1,20 +1,39 @@
 console.log("djesba");
 
 //dark mode
-const switchMode = document.getElementById('switch-mode')
+let userPrefersDark
 
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-  // dark mode
-  switchMode.checked = true;
+  userPrefersDark = true;
 } else {
-  //
-  switchMode.checked = false;
+  userPrefersDark = false;
 }
 
+const switchEl = document.querySelector('input[name=switch-mode]');
 
-switchMode.addEventListener('change', ()=>{
-  console.log('alo')
-})
+if(userPrefersDark){
+    switchEl.checked = true;
+  } else {
+    switchEl.checked = false;
+  }
+
+document.addEventListener("DOMContentLoaded", function (event) {
+  let selectorWrap = document.querySelector('.mode')
+  if(userPrefersDark){
+    selectorWrap.style.border = '2px solid white';
+  }
+  switchEl.addEventListener('change', function (event) {
+      if (switchEl.checked) {
+          document.body.classList.remove('light-mode');
+          document.body.classList.add('dark-mode');
+          selectorWrap.style.border = '2px solid white';
+      } else {
+          document.body.classList.remove('dark-mode');
+          document.body.classList.add('light-mode')
+          selectorWrap.style = '';
+      }
+  });
+});
 
 const a11yBtn = document.getElementById('a11y-menu')
 const a11yCloseBtn = document.getElementById('close-a11y')
