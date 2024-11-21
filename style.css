@@ -301,6 +301,7 @@
     height: 30%;
   }
 
+
   .svg-wrap {
     position: absolute;
     inset: 0;
@@ -582,7 +583,8 @@ nav {
     }
 
     #switch-mode:checked + .switch-icon {
-      background-color: black;
+      background-color: light-dark(var(--light-bg-1), var(--light-bg-2));
+      transform: translateX(0);
     }
 
     .header-link {
@@ -614,7 +616,12 @@ nav {
     }
 
     .title-wrap {
-      border-left: 4em solid blue;
+      border-left: 4em solid light-dark(var(--light-primary), var(--dark-primary));
+    }
+
+    .welcome > .title-wrap > h2 {
+      padding-left: 0;
+      font-size: 1.2em;
     }
   }
   
