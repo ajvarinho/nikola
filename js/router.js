@@ -58,16 +58,17 @@ const locationHandler = async () => {
     
 
     if(location.length !== 0){
-    setTimeout(() => {
         document.getElementById("content").innerHTML = html;
-        contentWrap = document.querySelector('.content-wrap');
-        contentWrap.classList.add('changeContent')
-        }, 200);
+    // setTimeout(() => {
+    //     contentWrap = document.querySelector('.content-wrap');
+    //     contentWrap.classList.add('changeContent')
+    //     }, 200);
     }
-    setTimeout(() => {
-        //document.getElementById("content").classList.remove('changeContent')
-        contentWrap.classList.remove('changeContent')
-      }, 500);
+
+    // setTimeout(() => {
+    //     //document.getElementById("content").classList.remove('changeContent')
+    //     contentWrap.classList.remove('changeContent')
+    //   }, 500);
     //document.getElementById("content").innerHTML = html;
     //
     document.getElementById("content").setAttribute('title', route.title);

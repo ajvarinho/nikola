@@ -424,6 +424,10 @@ nav {
     border-right: 3.5em solid blue;
   }
 
+  .content-text {
+    color: light-dark(var(--clr-text-dark), var(--clr-text-light));
+  }
+
   .content-title {
     line-height: 2.5em;
     /* background-color: cornflowerblue; */
