@@ -175,28 +175,34 @@ const locationHandler = async () => {
             document.querySelector('.nav-main').style.animation = 'none';
         }
 
-        let data = await getData();
+        if(location.length > 10) {
 
-        let activeData = data[activeRoute];
+            console.log(location, 'LOCATION')
+            let data = await getData();
+            let activeData = data[activeRoute];
 
-        console.log(activeData)
+            //
+            setTimeout(()=>{
+                projectWrapper = document.getElementById('template__grid-wrap');
+                if(activeData !== undefined){
+                    activeData.list.forEach(element => {
+                        createProjectElement(element);
+                    })
+                }
+            }, 100)
+    
+            setTimeout(() => {
+                document.getElementById('template__title').innerHTML = currentRoute;
+            }, 100);
+    
+            setTimeout(() => {
+                document.getElementById('template__desc').innerHTML = activeData.description;
+            }, 100);
+        }
 
-        setTimeout(()=>{
-            projectWrapper = document.getElementById('template__grid-wrap');
-            if(activeData !== undefined){
-                activeData.list.forEach(element => {
-                    createProjectElement(element);
-                })
-            }
-        }, 100)
+        //console.log(activeData)
 
-        setTimeout(() => {
-            document.getElementById('template__title').innerHTML = currentRoute;
-        }, 100);
 
-        setTimeout(() => {
-            document.getElementById('template__desc').innerHTML = activeData.description;
-        }, 100);
     }
 
     //animate transition pt.2 
