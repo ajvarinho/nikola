@@ -114,9 +114,6 @@ document.addEventListener("click", (e) => {
   }
 });
 
-
-
-
 //
 
 var i;
