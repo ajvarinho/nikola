@@ -1,0 +1,30 @@
+<link href="../work.css" rel="stylesheet">
+<div class="template__main">
+    <div class=" title-wrap archivo-test">
+        <h2 id="template__title" class="template__title">{{}}</h2>
+    </div>
+    <div class="content-wrap archivo-test">
+        <p id="template__desc" class="title-wrap archivo-test">{{}}</p>
+        <div id="template__grid-wrap" class="template__grid-wrap">
+
+        </div>
+    </div>
+</div>
+
+<script>
+    /// work template
+
+    const dialog = document.querySelector("dialog");
+    const showButton = document.querySelector("dialog + button");
+    const closeButton = document.querySelector("dialog button");
+
+    // "Show the dialog" button opens the dialog modally
+    showButton.addEventListener("click", () => {
+    dialog.showModal();
+    });
+
+    // "Close" button closes the dialog
+    closeButton.addEventListener("click", () => {
+    dialog.close();
+    });
+</script>
