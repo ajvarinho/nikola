@@ -148,7 +148,7 @@ const locationHandler = async () => {
     }
     // get the route object from the urlRoutes object
     //bilo const 
-    let route = routes[location] || routes["404"];
+    let route = routes[location] || routes[404];
 
     // get the html from the template
     const html = await fetch(route.template).then((response) => response.text());
