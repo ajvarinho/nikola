@@ -15,7 +15,7 @@ const routes = {
         description: "Page not found",
     },
     "/": {
-        template: "/templates/welcome.html",
+        template: "/templates/index.html",
         title: "Home",
         description: "This is the home page",
     },
@@ -81,7 +81,7 @@ async function getData() {
   
       const json = await response.json();
       return json;
-      console.log(json);
+      ///console.log(json);
     } catch (error) {
       console.error(error.message);
     }
@@ -149,6 +149,8 @@ const locationHandler = async () => {
     // get the route object from the urlRoutes object
     //bilo const 
     let route = routes[location] || routes[404];
+
+    console.log(routes[404], routes[location])
 
     // get the html from the template
     const html = await fetch(route.template).then((response) => response.text());
