@@ -63,7 +63,7 @@ const routes = {
     },
 
     "/work/experiments": {
-        template: "/templates/work-template.html",
+        template: "/templates/experiments.html",
         title: "experiments",
         description: "EXP",
     },
