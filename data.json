@@ -1,7 +1,7 @@
 {
     "webdev": {
       "title": "Projects",
-      "description": "List of some projects",
+      "description": "Greatest hits, or the small pet projects I've managed to finish",
       "list": [
         {
             "title": "Flatbot",
@@ -60,7 +60,36 @@
         ]
       },
 
-      "drawings": [
-        "./link", "urilink"
-      ]
+      "drawings": {
+        "title": "Drawings",
+        "description": "Drawings, doodels, sketches",
+        "list": [
+          {
+              "title": "Ancient",
+              "description": "Generic design section project title",
+              "link": "github",
+              "screenshots": [
+                  {
+                      "title": "test",
+                      "url": "../public/img/uno-1.png"
+                  }
+              ]
+            },
+            {
+              "title": "Design project",
+              "description": "Soft smooth landing",
+              "link": "github",
+              "screenshots": [
+                  {
+                      "title": "alo",
+                      "url": "../public/img/pomp.png"
+                  },
+                  {
+                    "title": "haj vamo",
+                    "url": "../public/img/pas-ker.png"
+                }
+              ]
+            }
+        ]
+      }
   }

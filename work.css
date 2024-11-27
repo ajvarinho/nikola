@@ -1,6 +1,7 @@
 .template__grid-wrap {
     display: grid;
     grid-template-columns: 1fr;
+    padding: 2em;
 }
 
 .grid-item {
@@ -9,6 +10,21 @@
     padding: 2em 0;
     display: flex;
     /* height: 10vh; */
+}
+
+/* .grid-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 1;
+    transition-duration: .7s;
+    background: var(--clr-text-dark);
+    filter: blur(2px);
+    pointer-events: none;
+} */
+
+.grid-item:hover::before {
+    opacity: 0;
 }
 
 .screenshot-wrap {

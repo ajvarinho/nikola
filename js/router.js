@@ -56,6 +56,12 @@ const routes = {
         description: "This is the portfolio page",
     },
 
+    "/work/drawings": {
+        template: "/templates/work-template.html",
+        title: "drawings",
+        description: "This is the portfolio page",
+    },
+
     "/work/experiments": {
         template: "/templates/work-template.html",
         title: "experiments",
@@ -93,7 +99,6 @@ const route = (event) => {
 
 function createProjectElement(object){
 
-    console.log('object crate', object)
     let title = document.createElement('p');
     title.setAttribute('class', 'project-title');
     title.innerHTML = object.title;
@@ -165,6 +170,11 @@ const locationHandler = async () => {
         //
         let currentRoute = location;
 
+        if(currentRoute.length > 10) {
+            document.querySelector('.title-wrap').style.animation = 'none';
+            document.querySelector('.nav-main').style.animation = 'none';
+        }
+
         let data = await getData();
 
         let activeData = data[activeRoute];
@@ -187,12 +197,6 @@ const locationHandler = async () => {
         setTimeout(() => {
             document.getElementById('template__desc').innerHTML = activeData.description;
         }, 100);
-
-
-        
-
-
-
     }
 
     //animate transition pt.2 
