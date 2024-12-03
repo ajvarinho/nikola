@@ -49,6 +49,7 @@ const routes = {
         description: "This is the portfolio page",
     },
 
+    
     "/work/texts": {
         template: "/templates/work-template.html",
         title: "texts",
@@ -69,10 +70,9 @@ const routes = {
 };
 
 const JSONRoute = '../data.json';
-let data;
 
-async function getData(url) {
-    //const url = JSONRoute;
+async function getData() {
+    const url = JSONRoute;
     try {
       const response = await fetch(url);
       if (!response.ok) {
@@ -81,13 +81,11 @@ async function getData(url) {
   
       const json = await response.json();
       return json;
-      ///console.log(json);
+      console.log(json);
     } catch (error) {
       console.error(error.message);
     }
   }
-
-
   
 const route = (event) => {
     event = event || window.event; // get window.event if event argument not provided
@@ -96,6 +94,8 @@ const route = (event) => {
     window.history.pushState({}, "", event.target.href);
     locationHandler();
 };
+
+
 
 function createProjectElement(object){
 
@@ -142,19 +142,13 @@ const locationHandler = async () => {
     //bilo const
     let location = window.location.pathname; // get the url path
 
-    console.log("ROUTES", routes)
-
     // if the path length is 0, set it to primary page route
     if (location.length == 0) {
         location = "/";
     }
     // get the route object from the urlRoutes object
     //bilo const 
-    let route = routes[location] || routes[404];
-
-    console.log('location handler', location)
-
-    console.log( 'route', route)
+    let route = routes[location] || routes["404"];
 
     // get the html from the template
     const html = await fetch(route.template).then((response) => response.text());
@@ -164,6 +158,7 @@ const locationHandler = async () => {
     let activeRoute = route.title;
 
     if(location.length !== 0){
+        console.log(location, typeof location, location.length)
         document.getElementById("content").innerHTML = html;
 
     // animate  transition    
@@ -175,57 +170,33 @@ const locationHandler = async () => {
         //
         let currentRoute = location;
 
-        // if(currentRoute.length > 10) {
-        //     document.querySelector('.title-wrap').style.animation = 'none';
-        //     document.querySelector('.nav-main').style.animation = 'none';
-        // }
+        if(currentRoute.length > 10) {
+            document.querySelector('.title-wrap').style.animation = 'none';
+            document.querySelector('.nav-main').style.animation = 'none';
+        }
 
-        //if(location.length > 10) {
+        let data = await getData();
 
+        let activeData = data[activeRoute];
 
+        console.log(activeData)
 
-            // if(data !== undefined){
+        setTimeout(()=>{
+            projectWrapper = document.getElementById('template__grid-wrap');
+            if(activeData !== undefined){
+                activeData.list.forEach(element => {
+                    createProjectElement(element);
+                })
+            }
+        }, 100)
 
-            //     let activeData = data[activeRoute];
-            //     console.log(activeData)
-            // }
+        setTimeout(() => {
+            document.getElementById('template__title').innerHTML = currentRoute;
+        }, 100);
 
-            //
-
-            data = getData(JSONRoute);
-
-            let activeData = data
-
-            console.log(data);
-            setTimeout(()=>{
-                projectWrapper = document.getElementById('template__grid-wrap');
-                if(activeData){
-                    activeData.list.forEach(element => {
-                        createProjectElement(element);
-                    })
-                } else {
-                    console.log('no data')
-                }
-            }, 100)
-    
-            setTimeout(() => {
-                if(document.getElementById('template__title') !== null){
-
-                    document.getElementById('template__title').innerHTML = currentRoute;
-                }
-            }, 100);
-    
-            setTimeout(() => {
-                if( document.getElementById('template__desc') !== null){
-
-                    document.getElementById('template__desc').innerHTML = activeData.description;
-                }
-            }, 100);
-        //}
-
-        //console.log(activeData)
-
-
+        setTimeout(() => {
+            document.getElementById('template__desc').innerHTML = activeData.description;
+        }, 100);
     }
 
     //animate transition pt.2 
